@@ -1,0 +1,35 @@
+version: '3.3'
+
+services:
+   tomcat:
+     container_name: tomcat-container
+     image: tomcat:9.0.5-jre8
+     ports:
+       - "8001:8080"
+     volumes:
+       - "../build/libs/oppsett-0.0.1-SNAPSHOT.war:/usr/local/tomcat/webapps/oppsett-0.0.1-SNAPSHOT.war"
+     networks:
+       - yanetwork
+
+networks:
+  yanetwork:
+
+#   mysql:
+#     container_name: mysql-container
+#     image: mysql:5.7
+##     volumes:
+##       - ../build/libs:/var/lib/mysql/data
+#     networks:
+#       - yanetwork
+#     networks:
+#            - yanetwork
+#     restart: always
+#     environment:
+#       MYSQL_ROOT_PASSWORD: ya
+#       MYSQL_DATABASE: yadb
+#       MYSQL_USER: ya
+#       MYSQL_PASSWORD: ya
+#     ports:
+#       - "3306:3306"
+#volumes:
+#  mysql:

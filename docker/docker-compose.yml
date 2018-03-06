@@ -1,0 +1,26 @@
+version: '3.3'
+
+services:
+#   web:
+#      container_name: tomcat-container
+#      image: mysql:5.7
+   mysql:
+     container_name: mysql-container
+     image: mysql:5.7
+#     volumes:
+#            - mysql:/var/lib/mysql/data
+#     networks:
+#       - yanetwork
+     restart: always
+     environment:
+       MYSQL_ROOT_PASSWORD: ya
+       MYSQL_DATABASE: yadb
+       MYSQL_USER: ya
+       MYSQL_PASSWORD: ya
+     ports:
+       - "3306:3306"
+#volumes:
+#  mysql:
+
+networks:
+  yanetwork:
